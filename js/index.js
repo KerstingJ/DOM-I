@@ -52,6 +52,7 @@ nav_a.forEach(function(item, index){
 
 //lets get the cta set uppp
 const ctaItems = Object.keys(siteContent.cta);
+//we're gonna iterate over the keys because the keys will help us select the elements we want :D
 ctaItems.forEach(function(item){
   if (item.includes("img")){
     const ctaElement = document.querySelector(`.cta img`);
@@ -60,13 +61,13 @@ ctaItems.forEach(function(item){
     const ctaElement = document.querySelector(`.cta ${item}`);
     ctaElement.textContent = siteContent.cta[item];
   }
-})
+});
 
 
 //main-content now. lets break it down one piece at a time
 const h4s = document.querySelectorAll(".main-content h4");
 const paras = document.querySelectorAll(".main-content p");
-//i'm sure there is a way to put these together into one object of heading/content pairs
+//i'm sure there is a way to put these together into heading/content pairs
 // but idk this works and that might overcomplicate it
 const h4Keys = Object.keys(siteContent["main-content"]).filter(x => x.includes("h4"));
 const paraKeys = Object.keys(siteContent["main-content"]).filter(x => x.includes("content"));
@@ -74,7 +75,7 @@ const paraKeys = Object.keys(siteContent["main-content"]).filter(x => x.includes
 // im lowkey proud of this
 h4s.forEach(function(h4Element, index){
   //we're gonna take advantage that h4 and para are the same length
-  // and have corresponding indices and do both in one go
+  // and have corresponding indices/content and do both in one go
   h4Element.textContent = siteContent["main-content"][h4Keys[index]];
   paras[index].textContent = siteContent["main-content"][paraKeys[index]];
 });
