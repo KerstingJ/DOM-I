@@ -43,10 +43,10 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
 // lets do our navigation!
-const nav = document.querySelectorAll("nav a");
+const nav_a = document.querySelectorAll("nav a");
 const navItemKeys = Object.keys(siteContent.nav).filter(x => x.includes("nav"));
 
-nav.forEach(function(item, index){
+nav_a.forEach(function(item, index){
   item.textContent = siteContent.nav[navItemKeys[index]];
 });
 
@@ -96,3 +96,28 @@ conP.forEach(function(element, index){
 //finish it off with the footer
 const copy = document.querySelector("footer p");
 copy.textContent = siteContent.footer.copyright;
+
+//lets do task 3
+const newAnchor1 = document.createElement("a");
+newAnchor1.href = "#";
+newAnchor1.textContent = "Careers"
+
+const newAnchor2 = document.createElement("a");
+newAnchor2.href = "#";
+newAnchor2.textContent = "Partners"
+
+const navigation = document.querySelector("nav");
+navigation.appendChild(newAnchor1);
+navigation.appendChild(newAnchor2);
+
+//changing color here to include all anchors
+const navigation_a = document.querySelectorAll("nav a");
+navigation_a.forEach(item => item.style.color = "green");
+
+//stretchign out down here.
+h4s.forEach(h4 => {
+  h4.style.color = "green"
+  h4.style.fontSize = "2rem"
+});
+
+paras.forEach(p => p.style.lineHeight = "1.4rem")
